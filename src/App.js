@@ -2,7 +2,8 @@ import "./App.css";
 import axios from "axios";
 import Posts from "./components/Posts";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import PostShow from "./components/PostShow";
 import Loader from "./components/Loader";
@@ -22,27 +23,22 @@ function App() {
     getAPIData().then((items) => {
       if (mounted) {
         setPosts(items);
-        setLoader(false)
+        setLoader(false);
       }
     });
     return () => {
       mounted = false;
-      ;
     };
   }, []);
   return (
     <div className="container text-white mt-5 mb-5">
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Posts posts={posts} />
-          </Route>
-          <Route exact path="/posts/:id">
-            <PostShow />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Posts posts={posts} />}></Route>
+          <Route exact path="/posts/:id" element={<PostShow />}></Route>
+        </Routes>
       </Router>
-      {loader && <Loader/>}
+      {loader && <Loader />}
     </div>
   );
 }
