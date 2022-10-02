@@ -24,10 +24,8 @@ function Post(props) {
           </div>
           <Link
             className="btn btn-primary mt-auto"
-            to={{
-              pathname: `/posts/${post.id}`,
-              state: { post: post },
-            }}
+            to={`/posts/${post.id}`}
+            state={{ post: post }}
           >
             Read Blog
           </Link>
