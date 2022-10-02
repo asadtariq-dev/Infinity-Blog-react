@@ -2,7 +2,6 @@ import Moment from "moment";
 import { useLocation } from "react-router-dom";
 import RichTextRenderer from "./RichTextRenderer";
 function PostShow() {
-  Moment.locale("en");
   let location = useLocation();
   const post = location.state.post;
   return (

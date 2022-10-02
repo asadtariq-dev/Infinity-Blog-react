@@ -1,17 +1,16 @@
-import "./App.css";
 import axios from "axios";
-import Posts from "./components/Posts";
 import { useEffect, useState } from "react";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Posts from "./components/Posts";
 import PostShow from "./components/PostShow";
 import Loader from "./components/Loader";
 
 const API_URL = "http://localhost:3000/api/v1/posts";
 
 async function getAPIData() {
-  return axios.get(API_URL).then((response) => response.data);
+  const { data } = await axios.get(API_URL);
+  return data;
 }
 
 function App() {
