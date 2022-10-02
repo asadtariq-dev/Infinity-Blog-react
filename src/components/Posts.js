@@ -1,8 +1,9 @@
 import PostItem from "./PostItem";
 
 function Posts(props) {
+  const posts = props.posts;
   return (
-    <>
+    <div>
       <h3 className="mb-5">
         Infinity <strong>Blog</strong>{" "}
         <small>
@@ -11,11 +12,11 @@ function Posts(props) {
       </h3>
       <div className="row">
         <h5 className="mb-4">Posts from API</h5>
-        {props.posts.map((post) => {
+        {posts.map((post) => {
           return <PostItem key={post.id} post={post} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 
