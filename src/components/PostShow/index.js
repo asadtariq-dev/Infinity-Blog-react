@@ -5,7 +5,7 @@ import getPosts from "../../api";
 import Loader from "../Loader";
 import RichTextRenderer from "../RichTextRenderer";
 
-function PostShow() {
+const PostShow = () => {
   const [post, setPost] = useState({});
   const [loader, setLoader] = useState(true);
   const { id } = useParams();
