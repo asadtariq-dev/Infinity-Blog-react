@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Moment from "moment";
+import './styles.css';
 
 function Post(props) {
   const post = props.post;
