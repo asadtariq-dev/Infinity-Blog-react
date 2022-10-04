@@ -25,10 +25,3 @@ body {
   border-color: #0d1117 !important;
 }
 
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-  margin-bottom: 20px;
-}

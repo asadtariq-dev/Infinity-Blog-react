@@ -1,6 +1,6 @@
 import Moment from "moment";
 import { useLocation } from "react-router-dom";
-import RichTextRenderer from "./RichTextRenderer";
+import RichTextRenderer from "../RichTextRenderer";
 function PostShow() {
   let location = useLocation();
   const post = location.state.post;
@@ -9,7 +9,7 @@ function PostShow() {
       <div className="card-body rounded">
         <div className="card border-0">
           <div className="rounded-top">
-            <img src={post.header_image} alt="car" width="100%" />
+            <img src={post.header_image} alt="img" width="100%" />
           </div>
         </div>
         <div className="card-header">
