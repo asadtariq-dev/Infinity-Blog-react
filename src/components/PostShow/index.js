@@ -1,9 +1,31 @@
 import Moment from "moment";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import getPosts from "../../api";
+import Loader from "../Loader";
 import RichTextRenderer from "../RichTextRenderer";
+
 function PostShow() {
-  let location = useLocation();
-  const post = location.state.post;
+  const [post, setPost] = useState({});
+  const [loader, setLoader] = useState(true);
+  const { id } = useParams();
+  const fetchPost = async () => {
+    try {
+      const res = await getPosts(`/posts/${id}`);
+      setPost(res.data);
+      setLoader(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
+  if (loader) {
+    return <Loader />;
+  }
   return (
     <div className="card mb-5">
       <div className="card-body rounded">
@@ -34,7 +56,7 @@ function PostShow() {
           </div>
         </div>
         <div className="mb-3 p-3">
-        <RichTextRenderer content={post.content.body}/>
+          <RichTextRenderer content={post.content.body} />
         </div>
       </div>
     </div>
