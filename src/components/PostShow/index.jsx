@@ -39,12 +39,10 @@ const PostShow = () => {
         </div>
         <div className="card-header">
           <div className="d-flex justify-content-between">
-            <small>
-              By{" "}
-              <strong>
-                {post.author.first_name} {post.author.last_name}{" "}
-              </strong>
-            </small>
+          <small>
+                By{" "}
+                <strong>{post.author.first_name} {post.author.last_name}</strong>
+              </small>
             {post.status === "published" ? (
               <small>
                 Published on{" "}
@@ -61,6 +59,6 @@ const PostShow = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PostShow;

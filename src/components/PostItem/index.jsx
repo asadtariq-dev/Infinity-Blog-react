@@ -5,6 +5,7 @@ import FormatString from "../../utils/FormatString";
 
 const Post = (props) => {
   const post = props.post;
+  console.log(post);
   return (
     <div className="col-md-6 col-lg-4">
       <div className="card mb-4">
@@ -26,6 +27,6 @@ const Post = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default Post;

@@ -3,7 +3,7 @@ import "./App.css";
 import Posts from "./components/Posts";
 import PostShow from "./components/PostShow";
 
-const App= () =>{
+const App = () => {
   return (
     <div className="container text-white mt-5 mb-5">
       <Router>
@@ -14,6 +14,6 @@ const App= () =>{
       </Router>
     </div>
   );
-}
+};
 
 export default App;
