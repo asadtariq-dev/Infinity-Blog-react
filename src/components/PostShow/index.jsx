@@ -5,7 +5,7 @@ import getPosts from "../../api";
 import Loader from "../Loader";
 import RichTextRenderer from "../RichTextRenderer";
 
-function PostShow() {
+const PostShow = () => {
   const [post, setPost] = useState({});
   const [loader, setLoader] = useState(true);
   const { id } = useParams();
@@ -39,12 +39,10 @@ function PostShow() {
         </div>
         <div className="card-header">
           <div className="d-flex justify-content-between">
-            <small>
-              By{" "}
-              <strong>
-                {post.author.first_name} {post.author.last_name}{" "}
-              </strong>
-            </small>
+          <small>
+                By{" "}
+                <strong>{post.author.first_name} {post.author.last_name}</strong>
+              </small>
             {post.status === "published" ? (
               <small>
                 Published on{" "}
@@ -61,6 +59,6 @@ function PostShow() {
       </div>
     </div>
   );
-}
+};
 
 export default PostShow;

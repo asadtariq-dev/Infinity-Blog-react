@@ -1,7 +1,7 @@
 import { Spinner } from "react-bootstrap";
 import "./styles.css";
 
-function Loader() {
+const Loader = () => {
   return (
     <>
       <div className="spinner">
@@ -14,6 +14,6 @@ function Loader() {
       </p>
     </>
   );
-}
+};
 
 export default Loader;

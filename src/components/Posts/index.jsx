@@ -3,7 +3,7 @@ import getPosts from "../../api";
 import PostItem from "../PostItem";
 import Loader from "../Loader";
 
-function Posts() {
+const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loader, setLoader] = useState(true);
 
