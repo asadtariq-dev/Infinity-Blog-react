@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Moment from "moment";
-import './styles.css';
+import "./styles.css";
 
 function Post(props) {
   const post = props.post;
@@ -22,11 +22,7 @@ function Post(props) {
               {Moment(post.created_at).format("d MMM yy")}
             </small>
           </div>
-          <Link
-            className="btn btn-primary mt-auto"
-            to={`/posts/${post.id}`}
-            state={{ post: post }}
-          >
+          <Link className="btn btn-primary mt-auto" to={`/posts/${post.id}`}>
             Read Blog
           </Link>
         </div>
