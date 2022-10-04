@@ -1,4 +1,4 @@
-import PostItem from "../PostItem/index.js";
+import PostItem from "../PostItem";
 
 function Posts(props) {
   const posts = props.posts;
