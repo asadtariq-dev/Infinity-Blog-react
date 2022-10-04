@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import Moment from "moment";
 import './styles.css';
+import FormatString from '../../utils/FormatString'
 
 function Post(props) {
   const post = props.post;
-
-  function truncate(str) {
-    return str.length > 100 ? str.substring(0, 100) + "..." : str;
-  }
   return (
     <div className="col-md-6 col-lg-4">
       <div className="card mb-4">
@@ -16,7 +13,7 @@ function Post(props) {
         </div>
         <div className="card-body rounded-bottom pt-2 d-flex flex-column">
           <h5 className="card-title">{post.title}</h5>
-          <p className="card-text">{truncate(post.description)}</p>
+          <p className="card-text">{FormatString(post.description)}</p>
           <div className="d-flex justify-content-between">
             <small className="mb-3">
               {Moment(post.created_at).format("d MMM yy")}
