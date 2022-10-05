@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import Moment from "moment";
-import "./styles.css";
-import FormatString from "../../utils/FormatString";
+import './styles.css';
+import FormatString from '../../utils/FormatString'
 
 const Post = (props) => {
   const post = props.post;
-  console.log(post);
   return (
     <div className="col-md-6 col-lg-4">
       <div className="card mb-4">
