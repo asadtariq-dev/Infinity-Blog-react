@@ -3,7 +3,7 @@ import Moment from "moment";
 import './styles.css';
 import FormatString from '../../utils/FormatString'
 
-function Post(props) {
+const Post = (props) => {
   const post = props.post;
   return (
     <div className="col-md-6 col-lg-4">
@@ -19,17 +19,13 @@ function Post(props) {
               {Moment(post.created_at).format("d MMM yy")}
             </small>
           </div>
-          <Link
-            className="btn btn-primary mt-auto"
-            to={`/posts/${post.id}`}
-            state={{ post: post }}
-          >
+          <Link className="btn btn-primary mt-auto" to={`/posts/${post.id}`}>
             Read Blog
           </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Post;

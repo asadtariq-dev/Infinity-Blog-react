@@ -1,9 +1,31 @@
 import Moment from "moment";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import getPosts from "../../api";
+import Loader from "../Loader";
 import RichTextRenderer from "../RichTextRenderer";
-function PostShow() {
-  let location = useLocation();
-  const post = location.state.post;
+
+const PostShow = () => {
+  const [post, setPost] = useState({});
+  const [loader, setLoader] = useState(true);
+  const { id } = useParams();
+  const fetchPost = async () => {
+    try {
+      const res = await getPosts(`/posts/${id}`);
+      setPost(res.data);
+      setLoader(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
+  if (loader) {
+    return <Loader />;
+  }
   return (
     <div className="card mb-5">
       <div className="card-body rounded">
@@ -17,12 +39,10 @@ function PostShow() {
         </div>
         <div className="card-header">
           <div className="d-flex justify-content-between">
-            <small>
-              By{" "}
-              <strong>
-                {post.author.first_name} {post.author.last_name}{" "}
-              </strong>
-            </small>
+          <small>
+                By{" "}
+                <strong>{post.author.first_name} {post.author.last_name}</strong>
+              </small>
             {post.status === "published" ? (
               <small>
                 Published on{" "}
@@ -34,11 +54,11 @@ function PostShow() {
           </div>
         </div>
         <div className="mb-3 p-3">
-        <RichTextRenderer content={post.content.body}/>
+          <RichTextRenderer content={post.content.body} />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default PostShow;

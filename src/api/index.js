@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/v1/posts";
+const getPosts = axios.create({
+  baseURL: "http://localhost:3000/api/v1",
+  headers: {
+    Accept: "application/json",
+  },
+});
 
-export default async function getAPIData() {
-  const { data } = await axios.get(API_URL);
-  return data;
-}
+export default getPosts;
